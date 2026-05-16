@@ -1,0 +1,13 @@
+{
+  "id": "magica.hookinglibrary",
+  "name": "Hooking Library",
+  "version": "1.0.0",
+  "authors": "MagicaJaphet",
+  "description": "Library for magica's mods.",
+  "requirements": [],
+  "requirements_names": [],
+  "tags": [
+    "Tools"
+  ],
+  "checksum_override_version": false
+}
