@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using UnityEngine;
 
 namespace MagicaHookingLibrary.Helpers;
 public static class MiscHelpers
@@ -73,6 +74,18 @@ public static class MiscHelpers
 	public static bool IsModActive(string id)
 	{
 		return ModManager.ActiveMods.Find(mod => mod.id == id) != null;
+	}
+
+	public static bool CheckForSingleInput(ref bool flag, params KeyCode[] keyCodes)
+	{
+		bool checkInput = (from k in keyCodes select Input.GetKey(k)).All(x => x);
+		if (checkInput && !flag)
+		{
+			flag = checkInput;
+			return true;
+		}
+		flag = checkInput;
+		return false;
 	}
 	#endregion
 }

@@ -26,7 +26,7 @@ public static class HookHelpers
 	/// <summary>
 	/// An init wrapper that invokes <paramref name="orig"/> before running our code.
 	/// </summary>
-	internal static void InitWrapper<T>(ref bool isInit, T orig, RainWorld self, Action<RainWorld> action, HookType type = HookType.On) where T : Delegate
+	internal static void InitWrapper<T>(ref bool isInit, T orig, RainWorld self, Action<RainWorld> action) where T : Delegate
 	{
 		orig.DynamicInvoke([self]);
 
@@ -118,7 +118,7 @@ public static class HookHelpers
 			if (hookClass.GetMethod($"{hookType}Apply") is MethodInfo applyMethod && applyMethod.GetMethodBody().GetILAsByteArray().Length > 2)
 			{
 				applyMethod.Invoke(hookClassInstance, null);
-				logger.LogInfo($"{hookClass.Name} for {Enum.GetName(typeof(HookType), type)}ModsInit applied!");
+				logger.LogInfo($"{hookClass.Name} for {hookType}ModsInit applied!");
 			}
 		}
 	}

@@ -167,7 +167,7 @@ public class WrapperBools
 	private bool isOnInit;
 	private bool isPostInit;
 
-	internal On.RainWorld.hook_PreModsInit PreWrapper(Action<RainWorld> modsInitAction) => (orig, self) => InitWrapper(ref isPreInit, orig, self, modsInitAction, HookType.Pre);
+	internal On.RainWorld.hook_PreModsInit PreWrapper(Action<RainWorld> modsInitAction) => (orig, self) => InitWrapper(ref isPreInit, orig, self, modsInitAction);
 	internal On.RainWorld.hook_OnModsInit OnWrapper(Action<RainWorld> modsInitAction) => (orig, self) => InitWrapper(ref isOnInit, orig, self, modsInitAction);
-	internal On.RainWorld.hook_PostModsInit PostWrapper(Action<RainWorld> modsInitAction) => (orig, self) => InitWrapper(ref isPostInit, orig, self, modsInitAction, HookType.Post);
+	internal On.RainWorld.hook_PostModsInit PostWrapper(Action<RainWorld> modsInitAction) => (orig, self) => InitWrapper(ref isPostInit, orig, self, modsInitAction);
 }
